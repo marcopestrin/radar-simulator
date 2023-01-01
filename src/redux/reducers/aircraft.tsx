@@ -29,4 +29,3 @@ export default function aicraft(prevState = {}, action: any){
 	}
 	return clonedState;
 };
-
