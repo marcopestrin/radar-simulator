@@ -1,18 +1,15 @@
 import * as actions from "../actions";
-import { airports, Airport } from '../../model/airports';
+import { getAirports } from '../controllers/airport';
 
-const getAirports = () => {
-	return airports;
-};
 export default function airport(prevState = {}, action: any){
 	let clonedState = JSON.parse(JSON.stringify(prevState));
 	const { type, payload } = action;
 	switch (type) {
 		case actions.GET_AIRPORTS:
-			const _airports = getAirports();
+			const airports = getAirports();
 			clonedState = {
 				...clonedState,
-				..._airports
+				...airports
 			};
 		break;
 

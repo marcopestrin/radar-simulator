@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import { GET_ROUTES, GET_AIRCRAFTS, GET_AIRPORTS } from './redux/actions';
+import { GET_ROUTES, GET_AIRPORTS, INIT } from './redux/actions';
 import { useDispatch } from "react-redux";
+import Aircrafts from './components/aircrafts';
 
 function App() {
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: INIT
+    })
+  });
 
   const getRoutes = () => {
     dispatch({
       type: GET_ROUTES
     });
   }
-  const getAircrafts = () => {
-    dispatch({
-      type: GET_AIRCRAFTS
-    });
-  }
+
   const getAirports = () => {
     dispatch({
       type: GET_AIRPORTS
@@ -24,9 +27,7 @@ function App() {
   }
   return (
     <div className="App">
-      <button onClick={getAircrafts}>get Aircrafts</button>
-      <button onClick={getRoutes}>get Routes</button>
-      <button onClick={getAirports}>get Airports</button>
+      <Aircrafts />
     </div>
   );
 }

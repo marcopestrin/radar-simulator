@@ -50,4 +50,4 @@ export interface Aircraft {
   id: number
   routes: Array<number>
   status: number
-}
+};

@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
-import aircraft from "./aircraft";
-import route from "./route";
-import airport from "./airport";
+import aircrafts from "./aircraft";
+import routes from "./route";
+import airports from "./airport";
 
 const reducers = combineReducers({
-  aircraft,
-  route,
-  airport
+  aircrafts,
+  routes,
+  airports
 });
 
 export default reducers;
