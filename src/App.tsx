@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
-import './App.css';
-import { GET_ROUTES, GET_AIRPORTS, INIT } from './redux/actions';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import { GET_ROUTES, INIT } from './redux/actions';
 import { useDispatch } from "react-redux";
 import Aircrafts from './components/aircrafts';
+import Airports from './components/airports';
 
 function App() {
 
@@ -20,15 +23,19 @@ function App() {
     });
   }
 
-  const getAirports = () => {
-    dispatch({
-      type: GET_AIRPORTS
-    });
-  }
   return (
-    <div className="App">
-      <Aircrafts />
-    </div>
+    <Container maxWidth="xl">
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <Typography variant="h3" component="h3">Airports</Typography>
+          <Airports />
+        </Grid>
+        <Grid item xs={8}>
+          <Typography variant="h3" component="h3">Aircrafts</Typography>
+          <Aircrafts />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

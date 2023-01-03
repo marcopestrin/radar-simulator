@@ -9,7 +9,7 @@ export default function airport(prevState = {}, action: any){
 			const airports = getAirports();
 			clonedState = {
 				...clonedState,
-				...airports
+				list: airports
 			};
 		break;
 

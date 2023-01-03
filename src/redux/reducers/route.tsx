@@ -9,7 +9,7 @@ export default function route(prevState = {}, action: any){
 			const routes = getRoutes();
 			clonedState = {
 				...clonedState,
-				...routes
+				list: routes
 			};
 		break;
 

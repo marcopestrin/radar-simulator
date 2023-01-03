@@ -1,17 +1,27 @@
 import { Aircraft } from '../model/aircrafts';
+import { Airport } from '../model/airports';
+import { Route } from '../model/routes';
 
 export interface Store {
   aircrafts: {
     list: Array<Aircraft>
   }
-  airports: object
-  routes: object
+  airports: {
+    list: Array<Airport>
+  }
+  routes: {
+    list: Array<Route>
+  }
 };
 
 export const initialState = {
   aircrafts: {
     list: []
   },
-  airports: {},
-  routes: {},
+  airports: {
+    list: []
+  },
+  routes: {
+    list: []
+  },
 };
