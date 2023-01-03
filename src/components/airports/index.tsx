@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import Box from '@mui/material/Box';
@@ -30,12 +30,24 @@ function Airports() {
       }}
     >
       <List>
-        {airports.map(airport => {
+        {airports.map(({
+          timezone,
+          id,
+          parked,
+          hub,
+          name
+        }) => {
           return (
-            <>
-              <Airport payload={airport} />
+            <React.Fragment key={id}>
+              <Airport
+                id={id}
+                hub={hub}
+                name={name}
+                parked={parked}
+                timezone={timezone}
+              />
               <Divider />
-            </>
+            </React.Fragment>
           );
         })}
       </List>

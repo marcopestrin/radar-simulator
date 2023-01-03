@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import StarIcon from '@mui/icons-material/Star';
 
+import { Airport as AirportInterface } from '../../model/airports';
 
-function Airport(props: any) {
-  const { id, timezone, hub, parked, name} = props.payload
+function Airport(props: AirportInterface) {
+  const { hub, name } = props;
   return (
     <ListItem>
       <ListItemButton>
@@ -16,7 +17,6 @@ function Airport(props: any) {
         </ListItemIcon>
         <ListItemText primary={name} />
       </ListItemButton>
-
     </ListItem>
   );
 }
