@@ -8,14 +8,17 @@ import StarIcon from '@mui/icons-material/Star';
 import { Airport as AirportInterface } from '../../model/airports';
 
 function Airport(props: AirportInterface) {
-  const { hub, name } = props;
+  const { hub, name, timezone, title } = props;
   return (
     <ListItem>
       <ListItemButton>
         <ListItemIcon>
           { hub ? <StarIcon /> : <></> }
         </ListItemIcon>
-        <ListItemText primary={name} />
+        <ListItemText
+          primary={`${name} (${title})`}
+          secondary={`UTC +${timezone}`}
+        />
       </ListItemButton>
     </ListItem>
   );

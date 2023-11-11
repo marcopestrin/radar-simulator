@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import Aircrafts from './components/aircrafts';
 import Airports from './components/airports';
 import Routes from './components/routes';
+import Map from './components/map';
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
           </Grid>
         </Grid>
         <Grid item xs={8}>
+          <Typography variant="h3" component="h3">Map</Typography>
+          <Map />
           <Typography variant="h3" component="h3">Aircrafts</Typography>
           <Aircrafts />
         </Grid>

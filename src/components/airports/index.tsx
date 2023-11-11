@@ -35,7 +35,9 @@ function Airports() {
           id,
           parked,
           hub,
-          name
+          name,
+          position,
+          title
         }) => {
           return (
             <React.Fragment key={id}>
@@ -45,6 +47,8 @@ function Airports() {
                 name={name}
                 parked={parked}
                 timezone={timezone}
+                title={title}
+                position={position}
               />
               <Divider />
             </React.Fragment>

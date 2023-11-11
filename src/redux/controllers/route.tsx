@@ -12,9 +12,10 @@ export const getRoutes = () => {
 			airportEnd = airportEnd.name;
 		}
 		return {
+			...route,
 			airportStart,
 			airportEnd,
-			id: route.id
+			id: route.id,
 		}
 	})
 };

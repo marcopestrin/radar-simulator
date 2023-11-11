@@ -40,7 +40,7 @@ function Aircrafts() {
       }}
     >
       <Grid container spacing={4}>
-        {aircrafts.map(({ id, routes, status }) => {
+        {aircrafts.map(({ id, routes, status, type, routesExplicit }) => {
           return (
             <Grid item xs={4} key={id}>
               <Item>
@@ -48,6 +48,8 @@ function Aircrafts() {
                   id={id}
                   routes={routes}
                   status={status}
+                  type={type}
+                  routesExplicit={routesExplicit}
                 />
               </Item>
             </Grid>

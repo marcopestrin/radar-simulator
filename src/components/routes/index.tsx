@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import moment from 'moment';
 import List from '@mui/material/List';
 import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
@@ -8,7 +9,11 @@ import { GET_ROUTES } from '../../redux/actions';
 import { useDispatch, useSelector } from "react-redux";
 import { selectorRoutes } from "../../redux/selectors";
 
-
+function formatTime(decimalTime:number) {
+  const hours = Math.floor(decimalTime);
+  const minutes = Math.round((decimalTime % 1) * 60);
+  return moment({ hours, minutes }).format('HH:mm');
+}
 
 function Routes() {
 
@@ -21,6 +26,7 @@ function Routes() {
     });
   };
 
+
   useEffect(getRoutes, []);
 
   return (
@@ -32,11 +38,14 @@ function Routes() {
       }}
     >
       <List>
-        {routes.map(({ airportStart, airportEnd, id }) => {
+        {routes.map(({ timeStart, timeEnd, airportStart, duration, airportEnd, id, nextDay }) => {
           return (
             <ListItem key={id}>
               <ListItemButton>
-                <ListItemText primary={`${airportStart} - ${airportEnd}`} />
+                <ListItemText
+                  primary={`[TK-${id}] ${airportStart} - ${airportEnd}`}
+                  secondary={`${formatTime(timeStart)} - ${formatTime(timeEnd)} ${nextDay ? '(+1)' : ''} (Duration: ${duration}h)`}
+                />
               </ListItemButton>
             </ListItem>
           );
