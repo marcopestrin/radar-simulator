@@ -11,7 +11,7 @@ function Airport(props: AirportInterface) {
   const { hub, name, timezone, title, timezoneName } = props;
   const localHour = moment().tz(timezoneName).format("HH:mm");
   return (
-    <ListItem>x
+    <ListItem dense={true}>
       <ListItemButton>
         <ListItemIcon>
           { hub ? <StarIcon /> : <></> }

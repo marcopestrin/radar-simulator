@@ -7,7 +7,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { GET_ROUTES } from '../../redux/actions';
 import { useDispatch, useSelector } from "react-redux";
-import { selectorRoutes } from "../../redux/selectors";
+import { selectorRoutes, selectorActiveRoutes } from "../../redux/selectors";
+
 
 function formatTime(decimalTime:number) {
   const hours = Math.floor(decimalTime);
@@ -19,6 +20,7 @@ function Routes() {
 
   const dispatch = useDispatch();
   const routes = useSelector(selectorRoutes);
+  const activeRoutes = useSelector(selectorActiveRoutes);
 
   const getRoutes = () => {
     dispatch({
@@ -32,15 +34,22 @@ function Routes() {
     <Box
       sx={{
         width: '100%',
-        maxWidth: 360,
-        bgcolor: 'background.paper'
+        bgcolor: 'background.paper',
+        padding: '0px'
       }}
     >
       <List>
         {routes.map(({ timeStart, timeEnd, airportStart, duration, airportEnd, id, nextDay }) => {
+          const isWorking = activeRoutes.some(route => route.id === id);
+          const backgroundColor = isWorking ? "#ddd" : "#fff";
+
           return (
-            <ListItem key={id}>
-              <ListItemButton>
+            <ListItem key={id} dense={true}>
+              <ListItemButton
+                  style={{
+                  backgroundColor
+                }}
+              >
                 <ListItemText
                   primary={`[TK-${id}] ${airportStart} - ${airportEnd}`}
                   secondary={`${formatTime(timeStart)} - ${formatTime(timeEnd)} ${nextDay ? '(+1)' : ''} (Duration: ${duration}h)`}

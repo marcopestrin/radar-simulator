@@ -1,13 +1,11 @@
 import moment from 'moment-timezone'
 import { routes, Route } from '../../model/routes';
 import { airports, Airport } from '../../model/airports';
-import { aircrafts, Aircraft } from '../../model/aircrafts';
+import { aircrafts } from '../../model/aircrafts';
 
 export const getCurrentSituation = () => {
-
   const activeRoutes = getActiveRoutes();
   let aircraftsInAir: { id: number; type: string; }[] = [];
-  console.log(activeRoutes);
   if (activeRoutes.length) {
     aircraftsInAir = activeRoutes.map(({ id: idRoute }: Route) => getAircraftInAir(idRoute)) || [];
   }
@@ -15,7 +13,6 @@ export const getCurrentSituation = () => {
     aircraftsInAir,
     activeRoutes
   }
-  
 }
 
 

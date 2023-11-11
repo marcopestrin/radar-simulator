@@ -24,7 +24,6 @@ function Airports() {
     <Box
       sx={{
         width: '100%',
-        maxWidth: 360,
         bgcolor: 'background.paper'
       }}
     >

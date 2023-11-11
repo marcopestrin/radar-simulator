@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import  { useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -8,7 +8,6 @@ import Aircrafts from './components/aircrafts';
 import Airports from './components/airports';
 import Routes from './components/routes';
 import Map from './components/map';
-import moment from 'moment';
 
 function App() {
 
@@ -26,11 +25,8 @@ function App() {
   return (
     <Container maxWidth="xl">
       <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h3" component="h3">{moment().format("HH:mm:ss")}</Typography>
-        </Grid>
         <Grid item xs={4}>
-          <Grid container spacing={2}>
+          <Grid container spacing={0.5}>
             <Grid item xs={12}>
               <Typography variant="h3" component="h3">Airports</Typography>
               <Airports />
