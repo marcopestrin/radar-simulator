@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectorAirports } from "../../redux/selectors";
 import Airport from '../airport';
 
-
 function Airports() {
 
   const dispatch = useDispatch();
@@ -37,7 +36,8 @@ function Airports() {
           hub,
           name,
           position,
-          title
+          title,
+          timezoneName
         }) => {
           return (
             <React.Fragment key={id}>
@@ -49,6 +49,7 @@ function Airports() {
                 timezone={timezone}
                 title={title}
                 position={position}
+                timezoneName={timezoneName}
               />
               <Divider />
             </React.Fragment>

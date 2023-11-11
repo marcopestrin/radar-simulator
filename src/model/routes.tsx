@@ -1,3 +1,4 @@
+// hours and minutes are locals
 export const routes = [
   // madrid
   {

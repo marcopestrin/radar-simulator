@@ -25,8 +25,7 @@ function Routes() {
       type: GET_ROUTES
     });
   };
-
-
+  
   useEffect(getRoutes, []);
 
   return (

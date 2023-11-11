@@ -29,9 +29,9 @@ function Map() {
   };
 
   useEffect(getAirports, []);
-
+ // key
   return (
-    <LoadScript googleMapsApiKey={"AIzaSyCC2pit9710eRYYFtLqHKHfuEkowfrhv7Q"}>
+    <LoadScript googleMapsApiKey={""}>
       <GoogleMap
         mapContainerStyle={{
           width: '100%',
@@ -43,7 +43,7 @@ function Map() {
         }}
         zoom={3}
       >
-        {paths.map(path => {
+        {paths.map((path, index) => {
 
           const midPoint = {
             lat: path.coordinates.reduce((sum, coord) => sum + coord.lat, 0) / path.coordinates.length,
@@ -62,6 +62,7 @@ function Map() {
               />
               <InfoWindow
                 position={midPoint}
+                key={index}
               >
                 <div style={infoWindowStyle}>
                   <p>{path.label}</p>

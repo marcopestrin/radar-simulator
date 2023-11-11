@@ -12,6 +12,10 @@ export interface Store {
   routes: {
     list: Array<Route>
   }
+  currentSituation: {
+    activeRoutes: Array<any>, // to fix
+    aircraftsInAir: Array<any> // to fix
+  }
 };
 
 export const initialState = {
