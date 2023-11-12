@@ -3,7 +3,6 @@ import { routes } from '../../model/routes';
 import { airports, Airport } from '../../model/airports';
 import { aircrafts } from '../../model/aircrafts';
 import { InAirAircraft } from '../../interfaces/aircraft/inAirAircraft';
-import { ActiveRoute } from '../../interfaces/route/activeRoute';
 
 export const getCurrentSituation = () => {
 
